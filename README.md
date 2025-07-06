@@ -4,6 +4,12 @@ scalability engineering prototype project
 dependency
 minikube and docker
 
+if you want to change the species seed data run below command to generate new species seed before building and deploying the application
+
+```shell
+python3 src/data_generator/script.py --seed 42 --count 100 --output src/server/species_seed.json
+```
+
 
 ```shell
 minikube delete
@@ -49,38 +55,54 @@ kubectl create -f src/k8s/architecture.yaml -n prototype
 ```
 
 ```shell
-kubectl port-forward svc/species-svc 8080:80 -n prototype
+minikube service species-svc -n prototype --url
 ```
 
+this will prompt the local url that is routing to the minkube species-svc
 
+eg:
 ```shell
-python3 src/data_generator/script.py --seed 42 --count 100 --output src/server/species_seed.json
+minikube service species-svc -n prototype --url
+
+http://127.0.0.1:50740
+❗  Because you are using a Docker driver on darwin, the terminal needs to be open to run it.
+
 ```
 
-
-
-
-then start and activate minikube
-build the dockerfile
-then apply the kube config
-then port forward to the localhost port 8080
-
-then
+important!: use the above url start client side
+you can start different client processes on different terminals as much as you want
 
 ```shell
 cd src/client
 npm i
 
-CLIENT_NAME=myClient THREADS=10 RATE=2 \
-SPECIES_IDS=1,2,3,4 SERVER_URL=http://localhost:3000 \
+CLIENT_NAME=client-1 THREADS=10 RATE=50 \
+SPECIES_IDS=1,2,3,4 SERVER_URL=http://127.0.0.1:50740 \
 node load_generator.js
 ```
 
 collect the data there
 
+apply visualization
+
+apply horizantal scaling
+
+```shell
+chmod +x src/scaler/script.sh
+```
+
+```shell
+ ./src/scaler/script.sh --memory 512Mi --restart
+```
+
+```shell
+ ./src/scaler/script.sh --cpu 300m --restart
+```
 
 
-then apply some python visualizor script
+```shell
+ ./src/scaler/script.sh --replicas 2 --restart
+```
 
 
 
