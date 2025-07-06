@@ -48,9 +48,12 @@ Then create the kubernetes deployment:
 kubectl create -f src/k8s/architecture.yaml -n prototype
 ```
 
-
-
+```shell
+kubectl port-forward svc/species-svc 8080:80 -n prototype
 ```
+
+
+```shell
 python3 src/data_generator/script.py --seed 42 --count 100 --output src/server/species_seed.json
 ```
 
@@ -64,7 +67,7 @@ then port forward to the localhost port 8080
 
 then
 
-```
+```shell
 cd src/client
 npm i
 

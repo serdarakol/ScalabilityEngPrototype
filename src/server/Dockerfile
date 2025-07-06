@@ -1,27 +1,26 @@
-FROM node:18-alpine
+FROM python:3.10
 
-RUN apk add --no-cache \
-      python3 \
-      make \
-      g++ \
-      sqlite-dev
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+       sqlite3 \
+    && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 
-COPY package*.json ./
-RUN npm ci --only=production
+COPY requirements.txt ./
 
-COPY . .
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . ./
 
 RUN mkdir -p /app/data
 
 EXPOSE 3000
 
 ENV PORT=3000 \
+    REQUEST_LIMIT=100 \
+    CACHE_TTL=30 \
     REDIS_URL=redis://127.0.0.1:6379 \
-    DB_PATH=/app/data/species.db \
-    REQUEST_LIMIT=60 \
-    CACHE_TTL=30
+    DB_PATH=/app/data/species.db
 
-# Start the service
-CMD ["node", "app.js"]
+CMD ["python", "app.py"]
