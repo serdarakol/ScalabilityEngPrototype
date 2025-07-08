@@ -69,7 +69,7 @@ http://127.0.0.1:50740
 
 ```
 
-important!: use the above url start client side
+important!: use the above url to start the client side,
 you can start different client processes on different terminals as much as you want
 
 ```shell
