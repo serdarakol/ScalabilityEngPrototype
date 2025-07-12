@@ -3,9 +3,9 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import os
 
-LOG_FILE = "./src/client/responses.log"
-SUMMARY_OUTPUT = "summary_1st_experiment.json"
-PLOT_DIR = "plots/first_experiment"
+LOG_FILE = "./src/client/responses_experiment2.log"
+SUMMARY_OUTPUT = "summary_2nd_experiment.json"
+PLOT_DIR = "plots/second_experiment"
 os.makedirs(PLOT_DIR, exist_ok=True)
 
 def parse_line(line):

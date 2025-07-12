@@ -1,0 +1,36 @@
+{
+    "total_requests": 1587,
+    "total_429_errors": 1225,
+    "cache_hit_rate": 0.2117,
+    "requests_per_client": {
+        "client-1": 440,
+        "client-2": 537,
+        "client-3": 610
+    },
+    "429s_per_client": {
+        "client-1": 434,
+        "client-2": 400,
+        "client-3": 391
+    },
+    "429s_per_pod": {
+        "species-0": 595,
+        "species-1": 630
+    },
+    "cache_stats_per_pod": {
+        "species-0": {
+            "total": 766,
+            "hits": 161,
+            "hit_rate": 0.2102
+        },
+        "species-1": {
+            "total": 817,
+            "hits": 175,
+            "hit_rate": 0.2142
+        },
+        "unknown": {
+            "total": 4,
+            "hits": 0,
+            "hit_rate": 0.0
+        }
+    }
+}

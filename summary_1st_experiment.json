@@ -1,0 +1,30 @@
+{
+    "total_requests": 1760,
+    "total_429_errors": 1560,
+    "cache_hit_rate": 0.104,
+    "requests_per_client": {
+        "client-1": 700,
+        "client-2": 580,
+        "client-3": 480
+    },
+    "429s_per_client": {
+        "client-1": 600,
+        "client-2": 480,
+        "client-3": 480
+    },
+    "429s_per_pod": {
+        "species-0": 1560
+    },
+    "cache_stats_per_pod": {
+        "species-0": {
+            "total": 1754,
+            "hits": 183,
+            "hit_rate": 0.1043
+        },
+        "unknown": {
+            "total": 6,
+            "hits": 0,
+            "hit_rate": 0.0
+        }
+    }
+}
