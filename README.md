@@ -77,7 +77,7 @@ cd src/client
 npm i
 
 CLIENT_NAME=client-1 THREADS=10 RATE=50 \
-SPECIES_IDS=1,2,3,4 SERVER_URL=http://127.0.0.1:50740 \
+SPECIES_IDS=1,2,3,4 SERVER_URL=http://127.0.0.1:57896 \
 node load_generator.js
 ```
 
