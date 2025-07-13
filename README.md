@@ -1,5 +1,6 @@
 # ScalabilityEngPrototype
 scalability engineering prototype project
+for a detailed project demo check out the Scalable Species Info Service pdf
 
 dependency
 minikube and docker
